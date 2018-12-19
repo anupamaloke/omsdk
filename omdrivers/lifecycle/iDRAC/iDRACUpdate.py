@@ -261,7 +261,7 @@ class iDRACUpdate(Update):
                 logger.error("Share path or mount point does not exist")
                 raise ValueError("Share path or mount point does not exist")
             return self.update_from_repo_usingscp_redfish(catalog_dir, catalog_file,
-                                                          mount_point=catalog_path.mount_point.full_path,
+                                                          mount_point=catalog_path.mount_point.mountable_path,
                                                           reboot_needed=reboot_needed, job_wait=job_wait)
 
         if TypeHelper.resolve(catalog_dir.remote_share_type) == TypeHelper.resolve(ShareTypeEnum.NFS):
